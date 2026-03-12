@@ -2,7 +2,6 @@ import { useState, useEffect, useRef, FormEvent } from "react";
 import {
   Menu,
   X,
-  Sun,
   MapPin,
   Clock,
   Users,
@@ -642,10 +641,15 @@ export default function App() {
         <div className="max-w-[1280px] mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-16 mb-16">
             <div>
-              <div className="flex items-center gap-9 text-2xl font-bold text-sky-500 mb-6">
-                <Sun className="w-8 h-8" />
-                <span>alba</span>
-              </div>
+            <div className="flex items-center gap-3 text-2xl font-bold text-sky-500 mb-6">
+              <img
+                src="/icon.png"
+                alt=""
+                className="w-8 h-8"
+                aria-hidden="true"
+              />
+              <span>alba</span>
+            </div>
               <p className="text-slate-400">
                 social media, without the toxic part.
               </p>
