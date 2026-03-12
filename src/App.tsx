@@ -8,7 +8,6 @@ import {
   Users,
   Instagram,
   Linkedin,
-  Play,
 } from "lucide-react";
 
 export default function App() {
@@ -149,9 +148,15 @@ export default function App() {
         <nav className="max-w-[1280px] mx-auto px-8 py-6 flex justify-between items-center">
           <button
             onClick={() => scrollToSection("hero")}
-            className="flex items-center gap-9 text-2xl font-bold text-sky-500"
+            className="flex items-center gap-3 text-2xl font-bold text-sky-500"
             aria-label="alba"
           >
+            <img
+              src="/icon.png"
+              alt=""
+              className="w-8 h-8"
+              aria-hidden="true"
+            />
             <span>alba</span>
           </button>
 
@@ -236,7 +241,7 @@ export default function App() {
               <li>
                 <button
                   onClick={() => scrollToSection("waitlist")}
-                  className="bg-sky-500 text-white px-6 py-4 rounded-full font-semibold hover:bg-sky-600 transition-colors"
+                  className="bg-sky-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-sky-600 transition-colors whitespace-nowrap mx-auto"
                 >
                   join waitlist
                 </button>
@@ -264,13 +269,13 @@ export default function App() {
             <div className="flex flex-col sm:flex-row gap-36">
               <button
                 onClick={() => scrollToSection("waitlist")}
-                className="bg-sky-500 text-white px-36 py-15 rounded-full font-semibold hover:bg-sky-600 transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-sky-500/30"
+                className="bg-sky-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-sky-600 transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-sky-500/30 whitespace-nowrap"
               >
                 join the waitlist
               </button>
               <button
                 onClick={() => scrollToSection("users")}
-                className="bg-transparent text-sky-500 border-2 border-sky-500 px-12 py-5 rounded-full font-semibold hover:bg-sky-500 hover:text-white transition-all hover:-translate-y-0.5"
+                className="bg-transparent text-sky-500 border-2 border-sky-500 px-8 py-3 rounded-full font-semibold hover:bg-sky-500 hover:text-white transition-all hover:-translate-y-0.5 whitespace-nowrap"
               >
                 learn more
               </button>
@@ -285,15 +290,15 @@ export default function App() {
           <h2 className="text-4xl font-bold mb-16 text-slate-900">
             see alba in action
           </h2>
-          <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-sky-100 to-sky-200 mb-6">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <button
-                className="play-button w-20 h-20 bg-sky-500 rounded-full flex items-center justify-center text-white shadow-xl transition-all hover:bg-sky-600"
-                aria-label="Play video"
-              >
-                <Play className="w-8 h-8 ml-1" fill="white" />
-              </button>
-            </div>
+          <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-slate-900 mb-6">
+            <iframe
+              src="https://www.youtube.com/embed/UV_sTo1Ha4o"
+              title="alba preview video"
+              className="absolute inset-0 w-full h-full"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
           </div>
           <p className="text-slate-600">
             alba is currently in beta. launching in milan in
@@ -462,7 +467,7 @@ export default function App() {
               </div>
               <button
                 type="submit"
-                className="w-full bg-sky-500 text-white px-16 py-10 rounded-full font-semibold hover:bg-sky-600 transition-colors"
+                className="bg-sky-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-sky-600 transition-colors whitespace-nowrap"
               >
                 submit
               </button>
@@ -584,7 +589,7 @@ export default function App() {
               </div>
               <button
                 type="submit"
-                className="w-full bg-sky-500 text-white px-16 py-10 rounded-full font-semibold hover:bg-sky-600 transition-colors"
+                className="bg-sky-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-sky-600 transition-colors whitespace-nowrap"
               >
                 submit
               </button>
@@ -691,7 +696,7 @@ export default function App() {
               <ul className="space-y-3">
                 <li>
                   <a
-                    href="/privacy"
+                    href="/privacy/"
                     className="text-slate-400 hover:text-sky-400 transition-colors"
                   >
                     privacy policy
@@ -699,7 +704,7 @@ export default function App() {
                 </li>
                 <li>
                   <a
-                    href="/terms"
+                    href="/terms/"
                     className="text-slate-400 hover:text-sky-400 transition-colors"
                   >
                     terms of service
@@ -707,7 +712,7 @@ export default function App() {
                 </li>
                 <li>
                   <a
-                    href="/refunds"
+                    href="/refunds/"
                     className="text-slate-400 hover:text-sky-400 transition-colors"
                   >
                     refund policy
@@ -719,15 +724,15 @@ export default function App() {
               <h4 className="font-bold mb-6">follow us</h4>
               <div className="flex gap-5">
                 <a
-                  href="#"
+                  href="https://instagram.com/albaappofficial"
                   aria-label="Instagram"
                   className="text-slate-400 hover:text-sky-400 transition-colors"
                 >
                   <Instagram className="w-6 h-6" />
                 </a>
                 <a
-                  href="#"
-                  aria-label="TikTok"
+                  href="https://x.com/albaappofficial"
+                  aria-label="X"
                   className="text-slate-400 hover:text-sky-400 transition-colors"
                 >
                   <svg
@@ -736,11 +741,11 @@ export default function App() {
                     viewBox="0 0 24 24"
                     aria-hidden="true"
                   >
-                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                    <path d="M4.2 3h3.1l4.4 6.4L16.9 3H20l-5.8 8.2L20 21h-3.1l-4.7-6.8L7.3 21H4.2l6.2-9.1L4.2 3z" />
                   </svg>
                 </a>
                 <a
-                  href="#"
+                  href="https://linkedin.com/company/albaappofficial"
                   aria-label="LinkedIn"
                   className="text-slate-400 hover:text-sky-400 transition-colors"
                 >
