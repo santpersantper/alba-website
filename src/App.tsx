@@ -280,6 +280,13 @@ export default function App() {
               </button>
             </div>
           </div>
+          <div className="fade-in order-1 md:order-2 flex justify-center">
+            <img
+              src="/phone.png"
+              alt="alba app preview"
+              className="w-full max-w-[420px] h-auto"
+            />
+          </div>
         </div>
       </section>
 
