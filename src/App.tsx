@@ -281,35 +281,17 @@ export default function App() {
             </div>
           </div>
           <div className="fade-in order-1 md:order-2 flex justify-center">
-            <img
-              src="/phone.png"
-              alt="alba app preview"
-              className="w-full max-w-[420px] h-auto"
-            />
+            <div className="relative w-full max-w-[340px] rounded-2xl overflow-hidden shadow-2xl bg-slate-900" style={{ aspectRatio: "9/16" }}>
+              <iframe
+                src="https://www.youtube.com/embed/UV_sTo1Ha4o"
+                title="alba preview video"
+                className="absolute inset-0 w-full h-full"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* Video Section */}
-      <section className="py-64 px-8 fade-in">
-        <div className="max-w-[900px] mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-16 text-slate-900">
-            see alba in action
-          </h2>
-          <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-slate-900 mb-6">
-            <iframe
-              src="https://www.youtube.com/embed/UV_sTo1Ha4o"
-              title="alba preview video"
-              className="absolute inset-0 w-full h-full"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            ></iframe>
-          </div>
-          <p className="text-slate-600">
-            alba is currently in beta. launching in milan in
-            2025.
-          </p>
         </div>
       </section>
 
@@ -763,6 +745,19 @@ export default function App() {
                   <Linkedin className="w-6 h-6" />
                 </a>
               </div>
+              <h4 className="font-bold mt-8 mb-4">contact us</h4>
+              <ul className="space-y-3 text-slate-400">
+                <li>
+                  <a href="mailto:support@albaappofficial.com" className="hover:text-sky-400 transition-colors">
+                    support@albaappofficial.com
+                  </a>
+                </li>
+                <li>
+                  <a href="tel:+4367846265741" className="hover:text-sky-400 transition-colors">
+                    +43 678 46265741
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
           <div className="border-t border-slate-700 pt-10 text-center text-slate-400">
