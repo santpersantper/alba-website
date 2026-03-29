@@ -24,6 +24,7 @@ const ForBusinessesSection = () => (
         </div>
         <div className="fade-up">
           <ContactForm
+            type="business"
             heading="Interested in advertising on Alba? Let's talk."
             orgLabel="Business name"
             textareaLabel="What would you like to advertise?"

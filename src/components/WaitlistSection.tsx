@@ -1,10 +1,14 @@
 import { useState, type FormEvent } from "react";
 
+const SUPABASE_URL = "https://phoepkacbrtolqmlwkvw.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBob2Vwa2FjYnJ0b2xxbWx3a3Z3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA2MDUxMjcsImV4cCI6MjA3NjE4MTEyN30.ZtrCsy3ReW0ctykXqt9YWy14oevyzWZSdYALYPDX8fo";
+
 const WaitlistSection = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const email = new FormData(e.currentTarget).get("email") as string;
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -12,6 +16,18 @@ const WaitlistSection = () => {
       return;
     }
     setError("");
+    setLoading(true);
+    try {
+      await fetch(`${SUPABASE_URL}/functions/v1/send-contact-email`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", apikey: SUPABASE_ANON_KEY },
+        body: JSON.stringify({ type: "waitlist", email }),
+      });
+    } catch {
+      // show success regardless — email is best-effort
+    } finally {
+      setLoading(false);
+    }
     setSubmitted(true);
   };
 
@@ -34,8 +50,8 @@ const WaitlistSection = () => {
               />
               {error && <p className="text-primary-foreground/80 text-xs mt-1 text-left pl-4">{error}</p>}
             </div>
-            <button type="submit" className="rounded-full px-6 py-3 bg-background text-primary font-semibold text-sm hover:bg-background/90 transition-colors whitespace-nowrap">
-              Join Waitlist
+            <button type="submit" disabled={loading} className="rounded-full px-6 py-3 bg-background text-primary font-semibold text-sm hover:bg-background/90 transition-colors whitespace-nowrap disabled:opacity-60">
+              {loading ? "Joining…" : "Join Waitlist"}
             </button>
           </form>
         )}

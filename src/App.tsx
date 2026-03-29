@@ -10,9 +10,20 @@ import {
 } from "lucide-react";
 
 export default function App() {
+  const SUPABASE_URL = "https://phoepkacbrtolqmlwkvw.supabase.co";
+  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBob2Vwa2FjYnJ0b2xxbWx3a3Z3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA2MDUxMjcsImV4cCI6MjA3NjE4MTEyN30.ZtrCsy3ReW0ctykXqt9YWy14oevyzWZSdYALYPDX8fo";
+
+  const sendContactEmail = async (payload: Record<string, string>) => {
+    const res = await fetch(`${SUPABASE_URL}/functions/v1/send-contact-email`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", apikey: SUPABASE_ANON_KEY },
+      body: JSON.stringify(payload),
+    });
+    if (!res.ok) throw new Error("send failed");
+  };
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [organizerSuccess, setOrganizerSuccess] =
-    useState(false);
+  const [organizerSuccess, setOrganizerSuccess] = useState(false);
   const [businessSuccess, setBusinessSuccess] = useState(false);
   const [waitlistSuccess, setWaitlistSuccess] = useState(false);
 
@@ -45,40 +56,70 @@ export default function App() {
     }
   };
 
-  const handleOrganizerSubmit = (
+  const handleOrganizerSubmit = async (
     e: FormEvent<HTMLFormElement>,
   ) => {
     e.preventDefault();
     const form = e.currentTarget;
-    if (form.checkValidity()) {
-      setOrganizerSuccess(true);
-      form.reset();
-      setTimeout(() => setOrganizerSuccess(false), 5000);
+    if (!form.checkValidity()) return;
+    const fd = new FormData(form);
+    try {
+      await sendContactEmail({
+        type: "organizer",
+        name: fd.get("organizer-name") as string,
+        org: fd.get("organizer-org") as string,
+        email: fd.get("organizer-email") as string,
+        message: fd.get("organizer-events") as string,
+      });
+    } catch {
+      // show success regardless — email is best-effort
     }
+    setOrganizerSuccess(true);
+    form.reset();
+    setTimeout(() => setOrganizerSuccess(false), 5000);
   };
 
-  const handleBusinessSubmit = (
+  const handleBusinessSubmit = async (
     e: FormEvent<HTMLFormElement>,
   ) => {
     e.preventDefault();
     const form = e.currentTarget;
-    if (form.checkValidity()) {
-      setBusinessSuccess(true);
-      form.reset();
-      setTimeout(() => setBusinessSuccess(false), 5000);
+    if (!form.checkValidity()) return;
+    const fd = new FormData(form);
+    try {
+      await sendContactEmail({
+        type: "business",
+        name: fd.get("business-name") as string,
+        org: fd.get("business-org") as string,
+        email: fd.get("business-email") as string,
+        message: fd.get("business-advertise") as string,
+      });
+    } catch {
+      // show success regardless — email is best-effort
     }
+    setBusinessSuccess(true);
+    form.reset();
+    setTimeout(() => setBusinessSuccess(false), 5000);
   };
 
-  const handleWaitlistSubmit = (
+  const handleWaitlistSubmit = async (
     e: FormEvent<HTMLFormElement>,
   ) => {
     e.preventDefault();
     const form = e.currentTarget;
-    if (form.checkValidity()) {
-      setWaitlistSuccess(true);
-      form.reset();
-      setTimeout(() => setWaitlistSuccess(false), 5000);
+    if (!form.checkValidity()) return;
+    const fd = new FormData(form);
+    try {
+      await sendContactEmail({
+        type: "waitlist",
+        email: fd.get("waitlist-email") as string,
+      });
+    } catch {
+      // show success regardless — email is best-effort
     }
+    setWaitlistSuccess(true);
+    form.reset();
+    setTimeout(() => setWaitlistSuccess(false), 5000);
   };
 
   return (
@@ -610,6 +651,7 @@ export default function App() {
           >
             <input
               type="email"
+              name="waitlist-email"
               required
               placeholder="enter your email"
               className="flex-1 px-6 py-5 rounded-full text-slate-900 focus:outline-white"
