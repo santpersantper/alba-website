@@ -4,7 +4,7 @@
     "target": {
       "namespace": "android_app",
       "package_name": "com.alba.app",
-      "sha256_cert_fingerprints": ["PLACEHOLDER_SHA256_FINGERPRINT"]
+      "sha256_cert_fingerprints": ["9C:6B:8E:0A:AB:A5:E5:73:3E:37:EC:47:87:61:F6:3C:34:83:10:DB:D1:1C:1B:E1:29:67:57:04:84:42:9C:65"]
     }
   }
 ]
