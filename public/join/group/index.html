@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>alba | join group</title>
+    <link rel="icon" href="/icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #f0f9ff;
+        color: #0f172a;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 32px 20px;
+        text-align: center;
+      }
+      .logo-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 36px;
+      }
+      .logo-row img { width: 40px; height: 40px; }
+      .logo-row span { font-size: 1.75rem; font-weight: 700; color: #0ea5e9; }
+      h1 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+        color: #0f172a;
+      }
+      p {
+        font-size: 1rem;
+        color: #475569;
+        margin-bottom: 36px;
+        max-width: 360px;
+        line-height: 1.6;
+      }
+      .store-btns {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        width: 100%;
+        max-width: 280px;
+      }
+      .store-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 14px 24px;
+        border-radius: 14px;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: opacity 0.15s;
+      }
+      .store-btn:hover { opacity: 0.85; }
+      .appstore { background: #0ea5e9; color: #fff; }
+      .playstore { background: #0f172a; color: #fff; }
+      .store-btn svg { width: 22px; height: 22px; flex-shrink: 0; }
+      .footer-link {
+        margin-top: 40px;
+        font-size: 0.85rem;
+        color: #94a3b8;
+      }
+      .footer-link a { color: #0ea5e9; text-decoration: none; }
+    </style>
+  </head>
+  <body>
+    <div class="logo-row">
+      <img src="/icon.png" alt="" />
+      <span>alba</span>
+    </div>
+    <h1>you've been invited to a group</h1>
+    <p>
+      download alba to join this group and connect with people near you.
+    </p>
+    <div class="store-btns">
+      <a
+        href="https://apps.apple.com/app/id"
+        class="store-btn appstore"
+        id="ios-btn"
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+        </svg>
+        download on the app store
+      </a>
+      <a
+        href="https://play.google.com/store/apps"
+        class="store-btn playstore"
+        id="android-btn"
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M3.18 23.76c.33.18.7.19 1.05.02l11.62-6.55-2.6-2.6-10.07 9.13zM.33 1.28C.12 1.6 0 2.02 0 2.54v18.93c0 .52.12.94.34 1.25l.07.07 10.6-10.6v-.25L.4 1.21l-.07.07zM20.49 10.27l-2.82-1.59-2.93 2.93 2.93 2.93 2.84-1.6c.81-.46.81-1.21-.02-1.67zM4.23.22L15.85 6.77l-2.6 2.6L3.18.24C3.53.07 3.9.08 4.23.22z"/>
+        </svg>
+        get it on google play
+      </a>
+    </div>
+    <p class="footer-link">
+      already have alba? <a href="#" id="open-app-link">open in app</a>
+    </p>
+
+    <script>
+      // Extract group ID from URL path: /join/group/<id>
+      var parts = window.location.pathname.split('/').filter(Boolean);
+      var groupId = parts[parts.length - 1];
+
+      // Attempt to open via custom scheme — only works if app is installed
+      if (groupId && groupId !== 'group') {
+        document.getElementById('open-app-link').href = 'alba://join/group/' + groupId;
+      }
+
+      // Detect platform and surface the right store button
+      var ua = navigator.userAgent || '';
+      var isIOS = /iPhone|iPad|iPod/i.test(ua);
+      var isAndroid = /Android/i.test(ua);
+      if (isIOS) document.getElementById('android-btn').style.display = 'none';
+      if (isAndroid) document.getElementById('ios-btn').style.display = 'none';
+    </script>
+  </body>
+</html>
