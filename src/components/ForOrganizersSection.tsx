@@ -25,7 +25,7 @@ const ForOrganizersSection = () => (
         <div className="fade-up">
           <ContactForm
             type="organizer"
-            heading="Get in touch — we'd love to feature your events on Alba."
+            heading="Get in touch, we'd love to feature your events on Alba."
             orgLabel="Organization name"
             textareaLabel="Tell us about your events"
           />

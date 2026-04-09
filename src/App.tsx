@@ -111,7 +111,7 @@ export default function App() {
     const fd = new FormData(form);
     try {
       await sendContactEmail({
-        type: "waitlist",
+        type: "newsletter",
         email: fd.get("waitlist-email") as string,
       });
     } catch {
@@ -227,12 +227,14 @@ export default function App() {
               </button>
             </li>
             <li>
-              <button
-                onClick={() => scrollToSection("waitlist")}
+              <a
+                href="https://apps.apple.com/it/app/alba/id6759857131"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-sky-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-sky-600 transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-sky-500/30"
               >
-                join waitlist
-              </button>
+                join alba
+              </a>
             </li>
           </ul>
 
@@ -279,12 +281,14 @@ export default function App() {
                 </button>
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection("waitlist")}
-                  className="bg-sky-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-sky-600 transition-colors whitespace-nowrap mx-auto"
+                <a
+                  href="https://apps.apple.com/it/app/alba/id6759857131"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-sky-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-sky-600 transition-colors whitespace-nowrap block text-center"
                 >
-                  join waitlist
-                </button>
+                  join alba
+                </a>
               </li>
             </ul>
           </div>
@@ -302,17 +306,19 @@ export default function App() {
               social media, without the toxic part.
             </h1>
             <p className="text-xl text-slate-600 mb-10 leading-relaxed">
-              discover events happening near you, spend less
-              time on your phone, and connect with the people
-              around you. launching in milan.
+              discover events and things to do near you, spend
+              less time on your phone, and connect with the
+              people around you. launching in milan.
             </p>
-            <div className="flex flex-col sm:flex-row gap-36">
-              <button
-                onClick={() => scrollToSection("waitlist")}
-                className="bg-sky-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-sky-600 transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-sky-500/30 whitespace-nowrap"
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href="https://apps.apple.com/it/app/alba/id6759857131"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-sky-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-sky-600 transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-sky-500/30 whitespace-nowrap text-center"
               >
-                join the waitlist
-              </button>
+                join alba
+              </a>
               <button
                 onClick={() => scrollToSection("users")}
                 className="bg-transparent text-sky-500 border-2 border-sky-500 px-8 py-3 rounded-full font-semibold hover:bg-sky-500 hover:text-white transition-all hover:-translate-y-0.5 whitespace-nowrap"
@@ -349,12 +355,11 @@ export default function App() {
             <div className="feature-card p-10 bg-slate-50 rounded-2xl transition-all">
               <MapPin className="w-12 h-12 text-sky-500 mb-6" />
               <h3 className="text-2xl font-bold mb-4 text-slate-900">
-                discover local events
+                discover events
               </h3>
               <p className="text-slate-600 leading-relaxed">
                 see concerts, aperitivos, exhibitions and more
-                happening within walking distance. no global
-                noise, just your city.
+                happening within walking distance.
               </p>
             </div>
             <div className="feature-card p-10 bg-slate-50 rounded-2xl transition-all">
@@ -364,8 +369,7 @@ export default function App() {
               </h3>
               <p className="text-slate-600 leading-relaxed">
                 set daily goals, track your usage across social
-                media apps, and reduce it gradually — without
-                going cold turkey.
+                media apps, and reduce it gradually.
               </p>
             </div>
             <div className="feature-card p-10 bg-slate-50 rounded-2xl transition-all">
@@ -375,8 +379,7 @@ export default function App() {
               </h3>
               <p className="text-slate-600 leading-relaxed">
                 join group chats for events you're attending,
-                connect with others before and after, and build
-                real local connections.
+                connect with others before and after.
               </p>
             </div>
           </div>
@@ -425,7 +428,7 @@ export default function App() {
           </div>
           <div className="bg-white p-10 rounded-2xl shadow-lg">
             <h3 className="text-xl font-bold mb-8 text-slate-900">
-              get in touch — we'd love to feature your events on
+              get in touch, we'd love to feature your events on
               alba.
             </h3>
             {organizerSuccess && (
@@ -532,7 +535,7 @@ export default function App() {
                 </span>
                 <span>
                   track performance with a full analytics
-                  dashboard — impressions, clicks, engagement
+                  dashboard, impressions, clicks, engagement
                 </span>
               </li>
               <li className="flex gap-4 text-slate-600 leading-relaxed">
@@ -540,7 +543,7 @@ export default function App() {
                   ✓
                 </span>
                 <span>
-                  no wasted spend on irrelevant audiences — your
+                  no wasted spend on irrelevant audiences, your
                   budget reaches locals who care
                 </span>
               </li>
@@ -634,15 +637,15 @@ export default function App() {
       >
         <div className="max-w-[1280px] mx-auto text-center">
           <h2 className="text-4xl font-bold mb-6">
-            be the first to know when alba launches.
+            stay in the loop.
           </h2>
           <p className="text-xl mb-10 opacity-90">
-            join our waitlist and get early access when we
-            launch in milan.
+            subscribe to our newsletter for updates, features,
+            and everything happening on alba.
           </p>
           {waitlistSuccess && (
             <div className="max-w-[600px] mx-auto bg-white text-sky-500 p-5 rounded-lg mb-6 font-semibold">
-              you're on the list! we'll be in touch soon. ☀️
+              you're subscribed! ☀️
             </div>
           )}
           <form
@@ -661,7 +664,7 @@ export default function App() {
               type="submit"
               className="bg-white text-sky-500 px-12 py-5 rounded-full font-semibold hover:bg-slate-50 transition-all hover:-translate-y-0.5 whitespace-nowrap"
             >
-              join waitlist
+              subscribe
             </button>
           </form>
         </div>
@@ -717,12 +720,14 @@ export default function App() {
                   </button>
                 </li>
                 <li>
-                  <button
-                    onClick={() => scrollToSection("waitlist")}
+                  <a
+                    href="https://apps.apple.com/it/app/alba/id6759857131"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-slate-400 hover:text-sky-400 transition-colors"
                   >
-                    join waitlist
-                  </button>
+                    join alba
+                  </a>
                 </li>
               </ul>
             </div>

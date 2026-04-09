@@ -24,7 +24,7 @@ const Navbar = () => {
               {l.label}
             </a>
           ))}
-          <a href="#waitlist" className="alba-btn-primary text-sm py-2 px-6">Join Waitlist</a>
+          <a href="https://apps.apple.com/it/app/alba/id6759857131" target="_blank" rel="noopener noreferrer" className="alba-btn-primary text-sm py-2 px-6">Join Alba</a>
         </div>
 
         {/* Mobile hamburger */}
@@ -45,7 +45,7 @@ const Navbar = () => {
               {l.label}
             </a>
           ))}
-          <a href="#waitlist" onClick={() => setMenuOpen(false)} className="alba-btn-primary text-sm py-2 px-6 inline-block">Join Waitlist</a>
+          <a href="https://apps.apple.com/it/app/alba/id6759857131" target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)} className="alba-btn-primary text-sm py-2 px-6 block text-center">Join Alba</a>
         </div>
       )}
     </nav>

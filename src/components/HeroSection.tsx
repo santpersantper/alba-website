@@ -8,10 +8,10 @@ const HeroSection = () => (
           Social media,<br />without the toxic part.
         </h1>
         <p className="alba-subheading mt-6 max-w-xl mx-auto md:mx-0">
-          Discover events happening near you, spend less time on your phone, and connect with the people around you. Launching in Milan.
+          Discover events and things to do near you, spend less time on your phone, and connect with the people around you. Launching in Milan.
         </p>
-        <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-          <a href="#waitlist" className="alba-btn-primary text-center">Join the Waitlist</a>
+        <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+          <a href="https://apps.apple.com/it/app/alba/id6759857131" target="_blank" rel="noopener noreferrer" className="alba-btn-primary text-center">Join Alba</a>
           <a href="#for-users" className="alba-btn-ghost text-center">Learn More</a>
         </div>
       </div>

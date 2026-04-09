@@ -2,8 +2,8 @@ import ContactForm from "./ContactForm";
 
 const bullets = [
   "Run geo-targeted ads that only reach users who have opted into your category",
-  "Track performance with a full analytics dashboard — impressions, clicks, engagement",
-  "No wasted spend on irrelevant audiences — your budget reaches locals who care",
+  "Track performance with a full analytics dashboard, impressions, clicks, engagement",
+  "No wasted spend on irrelevant audiences, your budget reaches locals who care",
 ];
 
 const ForBusinessesSection = () => (
