@@ -1,10 +1,13 @@
 {
   "applinks": {
-    "apps": [],
     "details": [
       {
-        "appID": "5VQYA86ATB.com.albaapp.alba",
-        "paths": ["/join/group/*", "/post/*", "/video/*"]
+        "appIDs": ["5VQYA86ATB.com.albaapp.alba"],
+        "components": [
+          { "/": "/post/*" },
+          { "/": "/video/*" },
+          { "/": "/join/group/*" }
+        ]
       }
     ]
   }
