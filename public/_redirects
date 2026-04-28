@@ -1,5 +1,13 @@
-# Deep link landing pages — rewrite dynamic segments to their index.html
-# Status 200 = rewrite (URL stays as-is; JS reads the ID from window.location.pathname)
+# Serve AASA and Android asset links without redirect
+/.well-known/apple-app-site-association  /.well-known/apple-app-site-association  200
+/.well-known/assetlinks.json             /.well-known/assetlinks.json             200
+
+# Static deep link landing pages
 /join/group/*   /join/group/index.html   200
-/post/*         /post/index.html         200
 /video/*        /video/index.html        200
+
+# Post viewer is now handled by the React SPA (react-router /post/:postId)
+/post/*         /index.html              200
+
+# SPA catch-all (must be last)
+/*              /index.html              200
