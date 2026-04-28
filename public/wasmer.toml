@@ -13,7 +13,4 @@ module = "wasmer/static-web-server:server"
 runner = "https://webc.org/runner/wasi/command/0.0.1"
 
 [command.annotations.wasi]
-env = [
-  "SERVER_LISTEN_ADDR=[::]:8080",
-  "SERVER_PAGE_FALLBACK=./index.html",
-]
+env = ["SERVER_LISTEN_ADDR=[::]:8080"]
