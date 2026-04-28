@@ -5,6 +5,10 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  build: {
+    // Don't wipe dist/ — wasmer.toml and app.yaml live there and are not in public/
+    emptyOutDir: false,
+  },
   server: {
     host: "::",
     port: 8080,
