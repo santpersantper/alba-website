@@ -1,0 +1,5 @@
+name: alba
+app_id: da_KD4Iat7UzyMg
+owner: santpersantper
+package: .
+kind: wasmer.io/App.v0
